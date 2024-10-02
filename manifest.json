@@ -1,0 +1,44 @@
+{
+  "name": "Web Vitals",
+  "version": "1.5.3",
+  "manifest_version": 3,
+  "description": "Measure metrics for a healthy site",
+  "homepage_url": "https://web.dev/articles/vitals",
+  "icons": {
+    "128": "icons/vitals128w.png",
+    "256": "icons/vitals256w.png",
+    "512": "icons/vitals512w.png"
+  },
+  "action": {
+    "default_icon": "icons/default256w.png",
+    "default_title": "Web Vitals",
+    "default_popup": "src/browser_action/popup.html"
+  },
+  "options_page": "src/options/options.html",
+  "host_permissions": ["*://*/*"],
+  "permissions": ["tabs", "storage", "activeTab", "scripting"],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/browser_action/viewer.css",
+        "src/browser_action/web-vitals.js",
+        "src/browser_action/on-each-interaction.js"
+      ],
+      "matches": ["*://*/*"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "css": ["src/browser_action/viewer.css"],
+      "js": ["src/browser_action/lodash-debounce-custom.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "service_worker.js",
+    "type": "module"
+  },
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; connect-src https://chromeuxreport.googleapis.com;"
+  }
+}

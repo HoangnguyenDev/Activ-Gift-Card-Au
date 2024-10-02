@@ -1,0 +1,397 @@
+.web-vitals-chrome-extension-popup {
+  width: 560px;
+
+  font-size: 12px;
+
+  --color-good: #0CCE6A;
+  --color-good-text: #1E8E3E;
+  --color-good-muted: hsl(149 0% 43% / 0.38);
+  --color-needs-improvement: #FFA400;
+  --color-needs-improvement-text: #AE6032;
+  --color-needs-improvement-muted: hsl(39 0% 50% / 0.38);
+  --color-poor: #FF4E42;
+  --color-poor-text: #EB0F00;
+  --color-poor-muted: hsl(4 0% 63% / 0.38);
+  --color-text: #3C4043;
+  --color-text-muted: #5F6368;
+  --color-text-link: #3740FF;
+  --color-light-grey: #F8F9FA;
+  --color-dark-grey: #DADCE0;
+  --transition-duration-easing: 250ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.web-vitals-chrome-extension-popup * {
+  box-sizing: border-box;
+}
+
+.web-vitals-chrome-extension-popup body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0px;
+  height: 100%;
+
+  font-size: 1rem;
+  line-height: 1.17rem;
+  font-weight: 400;
+  font-family: Roboto, sans-serif;
+  color: var(--color-text);
+}
+
+.web-vitals-chrome-extension-popup header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.web-vitals-chrome-extension-popup footer {
+  padding: 1rem;
+}
+
+.web-vitals-chrome-extension-popup footer > * {
+  margin-bottom: 0.75rem;
+}
+.web-vitals-chrome-extension-popup footer > *:last-child {
+  margin-bottom: 0rem;
+}
+
+.web-vitals-chrome-extension-popup h1 {
+  margin: 0px;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
+  font-family: "Google Sans", Roboto, sans-serif;
+}
+
+.web-vitals-chrome-extension-popup a {
+  color: var(--color-text-link);
+  text-decoration: none;
+}
+.web-vitals-chrome-extension-popup a:hover {
+  text-decoration: underline;
+}
+
+.web-vitals-chrome-extension-popup strong {
+  font-weight: 500;
+}
+
+.web-vitals-chrome-extension-popup .hidden {
+  display: none;
+}
+
+.web-vitals-chrome-extension-popup .nowrap {
+  white-space: nowrap;
+}
+
+.web-vitals-chrome-extension-popup .metadata {
+  color: var(--color-text-muted);
+  letter-spacing: 0.2px;
+}
+
+.web-vitals-chrome-extension-popup #metadata {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 2.34rem;
+}
+
+.web-vitals-chrome-extension-popup #status {
+  text-align: right;
+}
+
+.web-vitals-chrome-extension-popup .info {
+  margin-left: 1rem;
+  text-indent: 0rem;
+}
+.web-vitals-chrome-extension-popup .info svg {
+  fill: currentColor;
+}
+
+.web-vitals-chrome-extension-popup .metric-wrapper {
+  padding: 0rem 1rem;
+}
+
+.web-vitals-chrome-extension-popup .metric-wrapper:hover {
+  background-color: var(--color-light-grey);
+}
+
+.web-vitals-chrome-extension-popup .metric {
+  display: grid;
+  grid-template-areas: "metric-info metric-performance";
+  grid-template-columns: 1fr 330px;
+  align-items: center;
+  border-bottom: 1px solid var(--color-dark-grey);
+  height: 6.2rem;
+}
+.web-vitals-chrome-extension-popup .metric-wrapper:last-child .metric {
+  border-bottom: none;
+}
+
+.web-vitals-chrome-extension-popup .metric-info {
+  display: flex;
+  align-items: baseline;
+  grid-area: metric-info;
+}
+
+.web-vitals-chrome-extension-popup .metric-name {
+  display: inline-block;
+  font-size: 1.17rem;
+  line-height: 1.67rem;
+  white-space: nowrap;
+}
+
+.web-vitals-chrome-extension-popup .metric-performance {
+  position: relative;
+}
+
+.web-vitals-chrome-extension-popup .metric-performance-local {
+  margin-bottom: 0.33rem;
+  white-space: nowrap;
+}
+
+.web-vitals-chrome-extension-popup .metric-performance-local-value-wrapper {
+  display: inline-flex;
+}
+
+.web-vitals-chrome-extension-popup .metric-performance-local-value {
+  display: inline-block;
+}
+
+/* If the pin is too far right, put the label before it. */
+.web-vitals-chrome-extension-popup .reversed .metric-performance-local-value-wrapper {
+  flex-direction: row-reverse;
+  transform: translateX(calc(-100% - 2rem));
+}
+
+.web-vitals-chrome-extension-popup .good .metric-performance-local,
+.web-vitals-chrome-extension-popup .needs-improvement .metric-performance-local,
+.web-vitals-chrome-extension-popup .poor .metric-performance-local {
+  transition: margin-left var(--transition-duration-easing);
+  position: relative;
+  font-size: 1.17rem;
+  line-height: 1.67rem;
+  font-weight: 500;
+  text-indent: 1rem;
+}
+.web-vitals-chrome-extension-popup .good .metric-performance-local {
+  color: var(--color-good-text);
+}
+.web-vitals-chrome-extension-popup .needs-improvement .metric-performance-local {
+  color: var(--color-needs-improvement-text);
+}
+.web-vitals-chrome-extension-popup .poor .metric-performance-local {
+  color: var(--color-poor-text);
+}
+
+/* Pinpoint */
+.web-vitals-chrome-extension-popup .good .metric-performance-local::before,
+.web-vitals-chrome-extension-popup .needs-improvement .metric-performance-local::before,
+.web-vitals-chrome-extension-popup .poor .metric-performance-local::before {
+  position: absolute;
+  top: 1rem;
+  left: -2px;
+  content: '';
+  width: 1px;
+  height: 1.17rem;
+  border: 2px solid #fff;
+  border-bottom: 0;
+}
+.web-vitals-chrome-extension-popup .good .metric-performance-local::before {
+  background-color: var(--color-good);
+}
+.web-vitals-chrome-extension-popup .needs-improvement .metric-performance-local::before {
+  background-color: var(--color-needs-improvement);
+}
+.web-vitals-chrome-extension-popup .poor .metric-performance-local::before {
+  background-color: var(--color-poor);
+}
+.web-vitals-chrome-extension-popup .good:hover .metric-performance-local::before,
+.web-vitals-chrome-extension-popup .needs-improvement:hover .metric-performance-local::before,
+.web-vitals-chrome-extension-popup .poor:hover .metric-performance-local::before {
+  border-color: var(--color-light-grey);
+}
+
+/* Pinhead*/
+.web-vitals-chrome-extension-popup .good .metric-performance-local::after,
+.web-vitals-chrome-extension-popup .needs-improvement .metric-performance-local::after,
+.web-vitals-chrome-extension-popup .poor .metric-performance-local::after {
+  position: absolute;
+  top: 0.33rem;
+  left: 0rem;
+  content: '';
+  display: inline-block;
+  width: var(--pinhead-size);
+  height: var(--pinhead-size);
+  transform: translateX(calc((var(--pinhead-size) - 1px) / -2));
+
+  --pinhead-size: calc(5 / 6 * 1rem + 1px);
+}
+.web-vitals-chrome-extension-popup .good .metric-performance-local::after {
+  /* Circle */
+  border-radius: 100%;
+  background-color: var(--color-good);
+  transform: translateX(calc((var(--pinhead-size) - 2px) / -2));
+}
+.web-vitals-chrome-extension-popup .needs-improvement .metric-performance-local::after {
+  /* Square (default) */
+  background-color: var(--color-needs-improvement);
+}
+.web-vitals-chrome-extension-popup .poor .metric-performance-local::after {
+  /* Triangle */
+  height: 0rem;
+  width: 0rem;
+  border-left: calc(var(--pinhead-size) / 2) solid transparent;
+  border-right: calc(var(--pinhead-size) / 2) solid transparent;
+  border-bottom: var(--pinhead-size) solid var(--color-poor);
+}
+
+.web-vitals-chrome-extension-popup .metric-performance {
+  grid-area: metric-performance;
+  display: flex;
+  flex-direction: column;
+}
+
+.web-vitals-chrome-extension-popup .metric-performance-distribution {
+  display: flex;
+}
+
+.web-vitals-chrome-extension-popup .metric-performance-distribution-rating {
+  transition: width var(--transition-duration-easing);
+  width: var(--rating-width, 33.33%);
+  min-width: var(--min-rating-width, 0%);
+  margin-right: 0.17rem;
+  border-top: 4px solid;
+
+  /* Hide the % when the density is too small. */
+  box-sizing: content-box;
+  max-height: 1rem;
+  word-break: break-word;
+  overflow: hidden;
+}
+.web-vitals-chrome-extension-popup .metric-performance-distribution-rating:last-child {
+  margin-right: 0rem;
+}
+
+.web-vitals-chrome-extension-popup .metric-performance-distribution-rating.good {
+  border-top-color: var(--color-good-muted);
+}
+.web-vitals-chrome-extension-popup .metric-performance-distribution-rating.needs-improvement {
+  border-top-color: var(--color-needs-improvement-muted);
+}
+.web-vitals-chrome-extension-popup .metric-performance-distribution-rating.poor {
+  border-top-color: var(--color-poor-muted);
+  text-align: right;
+}
+
+.web-vitals-chrome-extension-popup .good .metric-performance-distribution-rating.good,
+.web-vitals-chrome-extension-popup .metric-wrapper:hover .metric-performance-distribution-rating.good {
+  border-top-color: var(--color-good);
+}
+.web-vitals-chrome-extension-popup .needs-improvement .metric-performance-distribution-rating.needs-improvement,
+.web-vitals-chrome-extension-popup .metric-wrapper:hover .metric-performance-distribution-rating.needs-improvement {
+  border-top-color: var(--color-needs-improvement);
+}
+.web-vitals-chrome-extension-popup .poor .metric-performance-distribution-rating.poor,
+.web-vitals-chrome-extension-popup .metric-wrapper:hover .metric-performance-distribution-rating.poor {
+  border-top-color: var(--color-poor);
+}
+
+.web-vitals-chrome-extension-popup .hovercard {
+  transition: visibility 0s var(--hovercard-hide-delay), opacity 0s var(--hovercard-hide-delay);
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: 0px;
+  z-index: 1;
+  width: 100%;
+  box-shadow: 0px 4px 8px rgba(60, 64, 67, 0.15), 0px 1px 3px rgba(60, 64, 67, 0.3);
+  border: 1px solid var(--color-dark-grey);
+  border-radius: 3px;
+  padding: 1.33rem 1rem;
+  background-color: #fff;
+  color: var(--color-text);
+  font-size: 1.17rem;
+  line-height: 1.67rem;
+
+  --hovercard-show-delay: 400ms;
+  --hovercard-hide-delay: 0ms;
+}
+.web-vitals-chrome-extension-popup .metric-wrapper:hover.good .hovercard,
+.web-vitals-chrome-extension-popup .metric-wrapper:hover.needs-improvement .hovercard,
+.web-vitals-chrome-extension-popup .metric-wrapper:hover.poor .hovercard {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: var(--hovercard-show-delay);
+}
+.web-vitals-chrome-extension-popup .metric-wrapper:last-child .hovercard {
+  top: unset;
+  bottom: calc(100% + 1rem);
+}
+.web-vitals-chrome-extension-popup .hovercard::before {
+  position: absolute;
+  content: '';
+  bottom: calc(100% + var(--border-width));
+  left: 50%;
+  width: var(--pointer-size);
+  height: var(--pointer-size);
+  box-shadow: 6px 6px 0px 6px var(--background-color), 0px 0px 0px var(--border-width) var(--color-dark-grey), 4px 4px 8px rgba(60, 64, 67, 0.15), 1px 1px 3px rgba(60, 64, 67, 0.3);
+  background-color: var(--background-color);
+  transform: translateX(-50%) translateY(calc(var(--pointer-size) / 2 - var(--border-width))) rotate(45deg);
+
+  --pointer-size: 1rem;
+  --border-width: 1px;
+  --background-color: #fff;
+}
+.web-vitals-chrome-extension-popup .metric-wrapper:last-child .hovercard::before {
+  bottom: unset;
+  top: calc(100% + var(--border-width));
+  box-shadow: -3px -3px 0px 3px var(--background-color), 0px 0px 0px var(--border-width) var(--color-dark-grey), 4px 4px 8px rgba(60, 64, 67, 0.15), 1px 1px 3px rgba(60, 64, 67, 0.3);
+  transform: translateX(-50%) translateY(calc(var(--pointer-size) / -2)) rotate(45deg);
+}
+.web-vitals-chrome-extension-popup .good .hovercard-local {
+  color: var(--color-good-text);
+}
+.web-vitals-chrome-extension-popup .needs-improvement .hovercard-local {
+  color: var(--color-needs-improvement-text);
+}
+.web-vitals-chrome-extension-popup .poor .hovercard-local {
+  color: var(--color-poor-text);
+}
+
+.web-vitals-chrome-extension-popup #device-page-wrapper {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.web-vitals-chrome-extension-popup #footer-wrapper {
+  display:flex;
+  justify-content:space-between;
+}
+
+.web-vitals-chrome-extension-popup #device-icon-desktop,
+.web-vitals-chrome-extension-popup #device-icon-phone {
+  display: none;
+  fill: currentColor;
+  vertical-align: middle;
+}
+.web-vitals-chrome-extension-popup .device-desktop #device-icon-desktop {
+  display: inline-block;
+}
+.web-vitals-chrome-extension-popup .device-phone #device-icon-phone {
+  display: inline-block;
+}
+
+.web-vitals-chrome-extension-popup #page {
+  vertical-align: middle;
+}
+
+.web-vitals-chrome-extension-popup #settings-link a svg {
+  color: black;
+}
+
+.web-vitals-chrome-extension-popup #settings-link a:hover svg {
+  color: blue;
+}
